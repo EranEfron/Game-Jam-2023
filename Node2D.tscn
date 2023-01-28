@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Node2D.tres" type="Texture" id=2]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -17,3 +18,9 @@ shape = SubResource( 1 )
 position = Vector2( 452, 223 )
 scale = Vector2( 0.264348, 0.281538 )
 texture = ExtResource( 2 )
+
+[node name="Tile" parent="." instance=ExtResource( 3 )]
+position = Vector2( 296, 560 )
+
+[node name="Tile2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 864, 560 )
