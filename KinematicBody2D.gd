@@ -14,7 +14,8 @@ func _ready():
 	pass
 
 func die():
-		get_tree().reload_current_scene()
+	get_tree().change_scene("res://DeathScreen.tscn")
+#	get_tree().reload_current_scene()
 
 func _physics_process (delta):
 	vel.x = 0
