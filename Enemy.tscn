@@ -15,7 +15,7 @@ scale = Vector2( 2.63901, 2.0679 )
 shape = SubResource( 1 )
 
 [node name="TempEnemy" type="Sprite" parent="CollisionShape2D"]
-position = Vector2( 0.00151587, -0.683592 )
+position = Vector2( 0.00151443, -0.68359 )
 scale = Vector2( 1.51572, 1.93433 )
 texture = ExtResource( 1 )
 

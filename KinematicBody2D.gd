@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 # Declare member variables here. Examples:
-var speed : int = 200
+var speed : int = 250
 var jumpForce : int = 800
 var gravity : int = 1500
 var vel : Vector2 = Vector2()
