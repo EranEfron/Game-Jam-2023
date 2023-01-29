@@ -5,6 +5,7 @@ extends KinematicBody2D
 var speed : int = 250
 var jumpForce : int = 800
 var gravity : int = 1500
+var MAXVEL : int = 1000
 var vel : Vector2 = Vector2()
 var grounded : bool = false
 var glitched : bool = false
@@ -42,16 +43,17 @@ func _physics_process (delta):
 	else:
 		State = "Jump"
 # movement inputs
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left") and vel.x < MAXVEL:
 		State = "Walk"
 		vel.x -= speed
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_right") and vel.x < MAXVEL:
 		State = "Walk"
 		vel.x += speed
 	vel = move_and_slide(vel, Vector2.UP)
-	vel.y += gravity * delta
+	if vel.y < MAXVEL:
+		vel.y += gravity * delta
 # jump input
-	if Input.is_action_pressed("jump") and (is_on_floor() or (glitched and count >= 20)):
+	if Input.is_action_pressed("jump") and (is_on_floor() or (glitched and count >= 20)) and -vel.y < MAXVEL:
 		count = 0
 		State = "Jump"
 		vel.y -= jumpForce
