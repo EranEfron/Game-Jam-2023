@@ -14,3 +14,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("ui_select"):
 		get_tree().change_scene("res://Node2D.tscn")
+		
+	if Input.is_action_pressed("Quit"):
+		get_tree().quit()

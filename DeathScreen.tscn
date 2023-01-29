@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Death scene.png" type="Texture" id=1]
+[ext_resource path="res://DeathScreen.png" type="Texture" id=1]
 [ext_resource path="res://DeathScreen.gd" type="Script" id=2]
 
 [node name="Camera2D" type="Camera2D"]
