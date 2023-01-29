@@ -3,8 +3,13 @@ extends KinematicBody2D
 
 # Declare member variables here. Examples:
 var speed : int = 200
+<<<<<<< HEAD
 var jumpForce : int = 800
 var gravity : int = 1500
+=======
+var jumpForce : int = 600
+var gravity : int = 1000
+>>>>>>> 25eb5bce2fdc7deecb513e16b037f76a90e7cd02
 var vel : Vector2 = Vector2()
 var grounded : bool = false
 
