@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Death scene.png" type="Texture" id=1]
+[ext_resource path="res://DeathScreen.gd" type="Script" id=2]
+[ext_resource path="res://DeathScene.gd" type="Script" id=3]
+
+[node name="Camera2D" type="Camera2D"]
+current = true
+editor_draw_limits = true
+script = ExtResource( 2 )
+
+[node name="DeathScene" type="Sprite" parent="."]
+position = Vector2( 6.44794, -16 )
+scale = Vector2( 0.92096, 1.01235 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1150, 640 )
+script = ExtResource( 3 )
