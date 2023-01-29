@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://EnemyBug.tscn" type="PackedScene" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Camera2D.gd" type="Script" id=5]
 [ext_resource path="res://CollisionShape2D.gd" type="Script" id=6]
-[ext_resource path="res://Assets/charaIdle.png" type="Texture" id=7]
+[ext_resource path="res://Assets/chara.png" type="Texture" id=7]
 [ext_resource path="res://Powerup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Goal.tscn" type="PackedScene" id=9]
 
@@ -74,8 +74,6 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="AnimationRootNode" id=5]
-
 [sub_resource type="LineShape2D" id=2]
 d = 4.01995
 
@@ -93,20 +91,15 @@ __meta__ = {
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
+scale = Vector2( 1, 1.2619 )
 texture = ExtResource( 7 )
-hframes = 2
-vframes = 3
-frame = 5
+hframes = 6
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 6 )
 anims/Walk = SubResource( 7 )
-
-[node name="AnimationTree" type="AnimationTree" parent="Player"]
-tree_root = SubResource( 5 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 collision_use_kinematic = false
@@ -125,7 +118,24 @@ current = true
 limit_bottom = 700
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
 script = ExtResource( 5 )
+
+[node name="GlitchText" type="LineEdit" parent="Camera2D"]
+visible = false
+margin_left = -112.0
+margin_top = -288.0
+margin_right = 56.0
+margin_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "{INFINITE JUMP ACTIVE}"
+align = 1
+editable = false
+placeholder_alpha = 0.0
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2( -104, 96 )
@@ -149,6 +159,7 @@ __meta__ = {
 position = Vector2( 200, 144 )
 
 [node name="Goal" parent="." instance=ExtResource( 9 )]
-position = Vector2( 424, 136 )
+position = Vector2( 424, 96 )
+scale = Vector2( 0.75, 1.75 )
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_Area2D2_body_entered"]

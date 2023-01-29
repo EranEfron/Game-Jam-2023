@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = 8.0
+margin_bottom = -100.0
+rect_clip_content = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Glitch Message" type="TextEdit" parent="."]
+margin_right = 142.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 142, 20 )
+rect_scale = Vector2( 2, 5 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "INFINITE JUMP ACTIVE"
+readonly = true
+draw_spaces = true
+selecting_enabled = false
+drag_and_drop_selection_enabled = false

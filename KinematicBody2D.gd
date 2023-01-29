@@ -7,6 +7,9 @@ var jumpForce : int = 800
 var gravity : int = 1500
 var vel : Vector2 = Vector2()
 var grounded : bool = false
+var glitched : bool = false
+var count: int = 0;
+var glitchTime: int = 0;
 
 onready var sprite = $Sprite
 onready var ANI = get_node("AnimationPlayer")
@@ -15,11 +18,24 @@ onready var State = "Idle"
 func _ready():
 	pass
 
+func powerup():
+	var note = get_node("../Camera2D/GlitchText")
+	note.visible = true
+	glitched = true
+	glitchTime = 0
+
 func die():
 	get_tree().change_scene("res://DeathScreen.tscn")
 #	get_tree().reload_current_scene()
 
 func _physics_process (delta):
+	if glitched:
+		glitchTime += 1
+		if glitchTime >= 200:
+			glitched = false
+			var note = get_node("../Camera2D/GlitchText")
+			note.visible = false
+	count += 1
 	vel.x = 0
 	if is_on_floor():
 		State = "Idle"
@@ -35,7 +51,8 @@ func _physics_process (delta):
 	vel = move_and_slide(vel, Vector2.UP)
 	vel.y += gravity * delta
 # jump input
-	if Input.is_action_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("jump") and (is_on_floor() or (glitched and count >= 20)):
+		count = 0
 		State = "Jump"
 		vel.y -= jumpForce
 	if vel.x < 0:

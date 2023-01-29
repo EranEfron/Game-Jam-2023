@@ -19,4 +19,5 @@ func _ready():
 
 
 func _on_Powerup_body_entered(body):
-	pass # trigger powerup call in body
+	if body.name == "Player":
+		body.powerup() # trigger powerup call in body
