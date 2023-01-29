@@ -4,17 +4,17 @@
 [ext_resource path="res://EnemyBugScript.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 16.0
+radius = 8.0
 
-[node name="Area2D" type="Area2D"]
+[node name="EnemyBug" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 2, 2 )
+priority = 2.0
 
-[node name="Sprite" type="Sprite" parent="CollisionShape2D"]
-texture = ExtResource( 1 )
-hframes = 2
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 32
@@ -29,4 +29,11 @@ color = Color( 0.917647, 0.145098, 0.207843, 1 )
 hue_variation = 0.1
 hue_variation_random = 1.0
 
-[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
