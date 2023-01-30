@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/winScreen.png" type="Texture" id=1]
+[ext_resource path="res://DeathScreen.gd" type="Script" id=2]
+
+[node name="Camera2D" type="Camera2D"]
+current = true
+script = ExtResource( 2 )
+
+[node name="WinScene" type="Sprite" parent="."]
+position = Vector2( -0.775986, -1.97601 )
+scale = Vector2( 0.891784, 0.931175 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1150, 640 )
